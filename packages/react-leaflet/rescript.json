@@ -1,0 +1,28 @@
+{
+  "name": "@nomadle/rescript-react-leaflet",
+  "namespace": "ReactLeaflet",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "tests",
+      "type": "dev"
+    }
+  ],
+  "package-specs": {
+    "module": "esmodule",
+    "in-source": false
+  },
+  "suffix": ".bs.js",
+  "bsc-flags": ["-bs-super-errors"],
+  "bs-dependencies": [
+    "@rescript/react",
+    "@nomadle/rescript-leaflet"
+  ],
+  "bs-dev-dependencies": [
+    "rescript-vitest"
+  ],
+  "generators": ["rescript-vitest"]
+}

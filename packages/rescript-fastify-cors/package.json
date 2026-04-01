@@ -1,0 +1,57 @@
+{
+  "name": "@nomadle/rescript-fastify-cors",
+  "version": "0.1.0",
+  "description": "ReScript bindings for @fastify/cors",
+  "keywords": [
+    "rescript",
+    "bindings",
+    "fastify",
+    "cors",
+    "@fastify/cors"
+  ],
+  "author": "Nomadle <team@nomadle.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nomadle/rescript-bindings.git",
+    "directory": "packages/rescript-fastify-cors"
+  },
+  "bugs": "https://github.com/nomadle/rescript-bindings/issues",
+  "homepage": "https://github.com/nomadle/rescript-bindings/tree/main/packages/rescript-fastify-cors#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "type": "module",
+  "main": "./lib/es6/src/FastifyCors.bs.js",
+  "types": "./lib/es6/src/FastifyCors.bs.d.ts",
+  "files": [
+    "lib",
+    "rescript.json",
+    "README.md",
+    "CHANGELOG.md",
+    "src"
+  ],
+  "scripts": {
+    "build": "rescript build",
+    "clean": "rescript clean",
+    "dev": "rescript build -w",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "rescript build"
+  },
+  "peerDependencies": {
+    "rescript": "^11.0.0",
+    "rescript-nodejs": "^16.0.0",
+    "fastify": "^5.0.0",
+    "@fastify/cors": "^11.0.0"
+  },
+  "devDependencies": {
+    "rescript": "^11.1.4",
+    "rescript-nodejs": "^16.1.0",
+    "fastify": "^5.4.0",
+    "@fastify/cors": "^11.0.1",
+    "rescript-vitest": "^2.1.1",
+    "vitest": "^3.2.4"
+  }
+}

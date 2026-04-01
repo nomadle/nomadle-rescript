@@ -1,0 +1,20 @@
+{
+  "name": "@nomadle/rescript-leaflet",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "tests",
+      "type": "dev"
+    }
+  ],
+  "package-specs": {
+    "module": "esmodule",
+    "in-source": false
+  },
+  "suffix": ".bs.js",
+  "bs-dev-dependencies": ["rescript-vitest"],
+  "generators": ["rescript-vitest"]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@nomadle/rescript-react-i18next",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "tests",
+      "type": "dev"
+    }
+  ],
+  "package-specs": {
+    "module": "es6",
+    "in-source": false
+  },
+  "suffix": ".bs.js",
+  "bs-dependencies": ["@rescript/react", "@nomadle/rescript-i18next"],
+  "bs-dev-dependencies": ["rescript-vitest"]
+}

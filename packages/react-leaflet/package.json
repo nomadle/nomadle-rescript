@@ -1,0 +1,55 @@
+{
+  "name": "@nomadle/rescript-react-leaflet",
+  "version": "0.1.0",
+  "description": "ReScript bindings for React-Leaflet",
+  "keywords": [
+    "rescript",
+    "bindings",
+    "react-leaflet",
+    "maps"
+  ],
+  "author": "Nomadle <team@nomadle.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nomadle/rescript-bindings.git",
+    "directory": "packages/react-leaflet"
+  },
+  "bugs": "https://github.com/nomadle/rescript-bindings/issues",
+  "homepage": "https://github.com/nomadle/rescript-bindings/tree/main/packages/react-leaflet#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "type": "module",
+  "main": "./lib/es6/src/ReactLeaflet.bs.js",
+  "types": "./lib/es6/src/ReactLeaflet.bs.d.ts",
+  "files": [
+    "lib",
+    "rescript.json",
+    "README.md",
+    "CHANGELOG.md",
+    "src"
+  ],
+  "scripts": {
+    "build": "rescript build",
+    "clean": "rescript clean",
+    "dev": "rescript build -w",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "rescript build"
+  },
+  "peerDependencies": {
+    "rescript": "^11.0.0",
+    "@rescript/react": "^0.11.0 || ^0.12.0 || ^0.13.0",
+    "leaflet": "^1.9.0",
+    "react-leaflet": "^4.0.0 || ^5.0.0",
+    "@nomadle/rescript-leaflet": ">=0.1.0"
+  },
+  "devDependencies": {
+    "rescript": "^11.1.4",
+    "@rescript/react": "^0.11.0",
+    "rescript-vitest": "^2.1.1",
+    "vitest": "^3.2.4"
+  }
+}

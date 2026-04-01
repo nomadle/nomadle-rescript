@@ -1,0 +1,20 @@
+{
+  "name": "@nomadle/rescript-advertising",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "tests",
+      "type": "dev"
+    }
+  ],
+  "package-specs": {
+    "module": "es6",
+    "in-source": false
+  },
+  "suffix": ".bs.js",
+  "bs-dependencies": ["@rescript/react"],
+  "bs-dev-dependencies": ["rescript-vitest"]
+}

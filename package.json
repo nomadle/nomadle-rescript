@@ -1,0 +1,33 @@
+{
+  "name": "@nomadle/rescript-bindings",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Monorepo for Nomadle ReScript bindings",
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm -r dev",
+    "test": "pnpm -r test",
+    "test:watch": "pnpm -r test:watch",
+    "clean": "pnpm -r clean && rm -rf node_modules",
+    "lint": "pnpm -r lint",
+    "format": "pnpm -r format",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "publish-packages": "pnpm build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "jsdom": "^26.1.0",
+    "rescript-vitest": "^2.1.1",
+    "vitest": "^3.2.4"
+  },
+  "volta": {
+    "node": "20.12.0",
+    "pnpm": "8.15.6"
+  },
+  "packageManager": "pnpm@8.15.6",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

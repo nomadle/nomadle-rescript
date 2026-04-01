@@ -1,0 +1,56 @@
+{
+  "name": "@nomadle/rescript-supabase",
+  "version": "0.1.0",
+  "description": "ReScript bindings for @supabase/supabase-js",
+  "keywords": [
+    "rescript",
+    "bindings",
+    "supabase",
+    "auth",
+    "database",
+    "realtime"
+  ],
+  "author": "Nomadle <team@nomadle.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nomadle/rescript-bindings.git",
+    "directory": "packages/supabase"
+  },
+  "bugs": "https://github.com/nomadle/rescript-bindings/issues",
+  "homepage": "https://github.com/nomadle/rescript-bindings/tree/main/packages/supabase#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "type": "module",
+  "main": "./lib/es6/src/Supabase.bs.js",
+  "types": "./lib/es6/src/Supabase.bs.d.ts",
+  "files": [
+    "lib",
+    "rescript.json",
+    "README.md",
+    "CHANGELOG.md",
+    "src"
+  ],
+  "scripts": {
+    "build": "rescript build",
+    "clean": "rescript clean",
+    "dev": "rescript build -w",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "rescript build"
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "rescript": "^11.0.0"
+  },
+  "devDependencies": {
+    "rescript": "^11.1.4",
+    "rescript-vitest": "^2.1.1",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "rescript-webapi": "^0.10.0"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "@nomadle/rescript-i18next-browser-languagedetector",
+  "version": "0.1.0",
+  "description": "ReScript bindings for i18next-browser-languagedetector",
+  "keywords": [
+    "rescript",
+    "bindings",
+    "i18next",
+    "i18next-browser-languagedetector",
+    "language-detector"
+  ],
+  "author": "Nomadle <team@nomadle.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nomadle/rescript-bindings.git",
+    "directory": "packages/rescript-i18next-browser-languagedetector"
+  },
+  "bugs": "https://github.com/nomadle/rescript-bindings/issues",
+  "homepage": "https://github.com/nomadle/rescript-bindings/tree/main/packages/rescript-i18next-browser-languagedetector#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "type": "module",
+  "main": "./lib/es6/src/I18nextBrowserLanguageDetector.bs.js",
+  "types": "./lib/es6/src/I18nextBrowserLanguageDetector.bs.d.ts",
+  "files": [
+    "lib",
+    "rescript.json",
+    "README.md",
+    "CHANGELOG.md",
+    "src"
+  ],
+  "scripts": {
+    "build": "rescript build",
+    "clean": "rescript clean",
+    "dev": "rescript build -w",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "rescript build"
+  },
+  "peerDependencies": {
+    "rescript": "^11.0.0",
+    "i18next": "^26.0.0",
+    "i18next-browser-languagedetector": "^8.0.0"
+  },
+  "devDependencies": {
+    "rescript": "^11.1.4",
+    "i18next": "^26.0.3",
+    "i18next-browser-languagedetector": "^8.2.1",
+    "rescript-vitest": "^2.1.1",
+    "vitest": "^3.2.4"
+  }
+}

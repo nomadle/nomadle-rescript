@@ -1,0 +1,58 @@
+{
+  "name": "@nomadle/rescript-avatar-editor",
+  "version": "0.1.0",
+  "description": "ReScript bindings for react-avatar-editor",
+  "keywords": [
+    "rescript",
+    "bindings",
+    "react-avatar-editor",
+    "avatar",
+    "image",
+    "editor"
+  ],
+  "author": "Nomadle <team@nomadle.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nomadle/rescript-bindings.git",
+    "directory": "packages/avatar-editor"
+  },
+  "bugs": "https://github.com/nomadle/rescript-bindings/issues",
+  "homepage": "https://github.com/nomadle/rescript-bindings/tree/main/packages/avatar-editor#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "type": "module",
+  "main": "./lib/es6/src/ReactAvatarEditor.bs.js",
+  "types": "./lib/es6/src/ReactAvatarEditor.bs.d.ts",
+  "files": [
+    "lib",
+    "rescript.json",
+    "README.md",
+    "CHANGELOG.md",
+    "src"
+  ],
+  "scripts": {
+    "build": "rescript build",
+    "clean": "rescript clean",
+    "dev": "rescript build -w",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "rescript build"
+  },
+  "peerDependencies": {
+    "@rescript/react": "^0.11.0 || ^0.12.0 || ^0.13.0",
+    "react-avatar-editor": "^13.0.0",
+    "rescript": "^11.0.0"
+  },
+  "devDependencies": {
+    "@rescript/react": "^0.11.0",
+    "rescript": "^11.1.4",
+    "rescript-vitest": "^2.1.1",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "rescript-webapi": "^0.10.0"
+  }
+}

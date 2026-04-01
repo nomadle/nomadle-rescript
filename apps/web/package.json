@@ -1,0 +1,14 @@
+{
+  "name": "@nomadle/web",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Building @nomadle/web'",
+    "dev": "echo 'Dev mode @nomadle/web'",
+    "test": "echo 'Testing @nomadle/web'",
+    "lint": "echo 'Linting @nomadle/web'",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

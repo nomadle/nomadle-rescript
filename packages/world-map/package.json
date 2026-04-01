@@ -1,0 +1,56 @@
+{
+  "name": "@nomadle/rescript-world-map",
+  "version": "0.1.0",
+  "description": "ReScript bindings for react-world-map",
+  "keywords": [
+    "rescript",
+    "bindings",
+    "react-world-map",
+    "world-map",
+    "map",
+    "react"
+  ],
+  "author": "Nomadle <team@nomadle.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nomadle/rescript-bindings.git",
+    "directory": "packages/world-map"
+  },
+  "bugs": "https://github.com/nomadle/rescript-bindings/issues",
+  "homepage": "https://github.com/nomadle/rescript-bindings/tree/main/packages/world-map#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "type": "module",
+  "main": "./lib/es6/src/ReactWorldMap.bs.js",
+  "types": "./lib/es6/src/ReactWorldMap.bs.d.ts",
+  "files": [
+    "lib",
+    "rescript.json",
+    "README.md",
+    "CHANGELOG.md",
+    "src"
+  ],
+  "scripts": {
+    "build": "rescript build",
+    "clean": "rescript clean",
+    "dev": "rescript build -w",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "rescript build"
+  },
+  "peerDependencies": {
+    "rescript": "^11.0.0",
+    "@rescript/react": "^0.11.0 || ^0.12.0 || ^0.13.0",
+    "react-world-map": "^2.0.0"
+  },
+  "devDependencies": {
+    "rescript": "^11.1.4",
+    "@rescript/react": "^0.11.0",
+    "react-world-map": "^2.0.0",
+    "rescript-vitest": "^2.1.1",
+    "vitest": "^3.2.4"
+  }
+}
