@@ -73,7 +73,7 @@ module Icon = {
   external divIcon: {..} => t = "DivIcon"
 
   let createDefault = (~iconUrl, ~iconSize=?, ~iconAnchor=?, ~popupAnchor=?, ()) => {
-    let options = Dict.empty()
+    let options = (%raw("{}"): dict<string>)
     Dict.set(options, "iconUrl", iconUrl->Obj.magic)
 
     switch iconSize {
@@ -95,7 +95,7 @@ module Icon = {
   }
 
   let createDivIcon = (~html=?, ~className=?, ~iconSize=?, ~iconAnchor=?, ~popupAnchor=?, ()) => {
-    let options = Dict.empty()
+    let options = (%raw("{}"): dict<string>)
 
     switch html {
     | Some(h) => Dict.set(options, "html", h->Obj.magic)
