@@ -44,7 +44,7 @@ external make: (
 
 module HelmetProviderSSR = {
   @module("react-helmet-async")
-  external make: (~children: React.element, ~context: Js.t<{.}>=?) => React.element =
+  external make: (~children: React.element, ~context: '{}=?) => React.element =
     "HelmetProvider"
 }
 
@@ -69,42 +69,42 @@ module Helmet = {
 
 // Helper functions for meta tags
 let metaName = (name: string, content: string): dict<string> => {
-  let meta = Dict.empty()
+  let meta = (%raw("{}"): dict<string>)
   Dict.set(meta, "name", name)
   Dict.set(meta, "content", content)
   meta
 }
 
 let metaProperty = (property: string, content: string): dict<string> => {
-  let meta = Dict.empty()
+  let meta = (%raw("{}"): dict<string>)
   Dict.set(meta, "property", property)
   Dict.set(meta, "content", content)
   meta
 }
 
 let metaCharset = (charset: string): dict<string> => {
-  let meta = Dict.empty()
+  let meta = (%raw("{}"): dict<string>)
   Dict.set(meta, "charset", charset)
   meta
 }
 
 // Helper functions for link tags
 let linkStylesheet = (href: string): dict<string> => {
-  let link = Dict.empty()
+  let link = (%raw("{}"): dict<string>)
   Dict.set(link, "rel", "stylesheet")
   Dict.set(link, "href", href)
   link
 }
 
 let linkCanonical = (href: string): dict<string> => {
-  let link = Dict.empty()
+  let link = (%raw("{}"): dict<string>)
   Dict.set(link, "rel", "canonical")
   Dict.set(link, "href", href)
   link
 }
 
 let linkAlternate = (href: string, hreflang: string): dict<string> => {
-  let link = Dict.empty()
+  let link = (%raw("{}"): dict<string>)
   Dict.set(link, "rel", "alternate")
   Dict.set(link, "hreflang", hreflang)
   Dict.set(link, "href", href)
@@ -112,7 +112,7 @@ let linkAlternate = (href: string, hreflang: string): dict<string> => {
 }
 
 let script = (~type_=?, ~src=?, ()): dict<string> => {
-  let s = Dict.empty()
+  let s = (%raw("{}"): dict<string>)
   type_->Belt.Option.forEach(t => Dict.set(s, "type", t))
   src->Belt.Option.forEach(s_ => Dict.set(s, "src", s_))
   s

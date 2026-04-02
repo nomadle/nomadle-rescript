@@ -203,7 +203,7 @@ module ImageOverlay = {
 module GeoJSON = {
   @module("react-leaflet/GeoJSON") @react.component
   external make: (
-    ~data: Js.t<{..}>,
+    ~data: {..},
     ~style: Leaflet.PathOptions.t=?,
     ~eventHandlers: EventHandlers.t=?,
   ) => React.element = "GeoJSON"

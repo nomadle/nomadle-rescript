@@ -1,12 +1,12 @@
 // ReactHelmet.res (or a similar name for your bindings file)
 
 // Define specific types for the attributes within meta, link, script, style tags
-// This provides better type safety than just Js.t<{.}>
+// This provides better type safety than just '{}
 
 type htmlAttributes = {
   lang: option<string>, // Example: { lang: "en" }
   // Add other HTML attributes you might set, e.g., dir, amp, etc.
-  // If you need arbitrary attributes, you might use Js.t<{.}> directly
+  // If you need arbitrary attributes, you might use '{} directly
 }
 
 type bodyAttributes = {
@@ -50,9 +50,9 @@ type styleTag = {
 // Type for the onChangeClientState callback
 // (newState, addedTags, removedTags)
 type onChangeClientStateType = (
-  Js.t<{.}>, // newState: The new state of the head tags
-  array<Js.t<{.}> >, // addedTags: Array of tags that were added
-  array<Js.t<{.}> > // removedTags: Array of tags that were removed
+  JSON.t, // newState: The new state of the head tags
+  array<JSON.t>, // addedTags: Array of tags that were added
+  array<JSON.t> // removedTags: Array of tags that were removed
 ) => unit
 
 
@@ -75,7 +75,7 @@ module Helmet = {
     ~link: array<linkTag>=?, // Array of link tag objects
     ~script: array<scriptTag>=?, // Array of script tag objects
     ~style: array<styleTag>=?, // Array of style tag objects
-    ~base: Js.t<{.}>=?, // Base tag object (e.g., { href: "/base/" })
+    ~base: {..}=?, // Base tag object (e.g., { href: "/base/" })
     ~onChangeClientState: onChangeClientStateType=?, // Callback for client-side changes
     ~children: React.element=?, // Can contain inner <link>, <meta>, etc., or other React elements
     ~key: string=?, // Standard React prop
@@ -87,7 +87,7 @@ module Helmet = {
 // Server-side rendering support
 @module("react-helmet")
 @scope("Helmet")
-external renderStatic: unit => Js.t<{.}> = "renderStatic"
+external renderStatic: unit => JSON.t = "renderStatic"
 
 
 // (* Example Usage *)
