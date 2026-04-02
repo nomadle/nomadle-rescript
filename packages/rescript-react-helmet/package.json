@@ -33,20 +33,20 @@
     "src"
   ],
   "scripts": {
-    "build": "rescript build",
+    "build": "rescript",
     "clean": "rescript clean",
-    "dev": "rescript build -w",
+    "dev": "rescript watch",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepublishOnly": "rescript build"
+    "prepublishOnly": "rescript"
   },
   "peerDependencies": {
-    "rescript": "^11.0.0",
+    "rescript": "^11.0.0 || ^12.0.0",
     "@rescript/react": "^0.11.0 || ^0.12.0 || ^0.13.0",
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "rescript": "^11.1.4",
+    "rescript": "^12.0.0",
     "@rescript/react": "^0.11.0",
     "react-helmet": "^6.1.0",
     "rescript-vitest": "^2.1.1",

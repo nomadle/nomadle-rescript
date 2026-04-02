@@ -15,6 +15,6 @@
     "in-source": false
   },
   "suffix": ".bs.js",
-  "bs-dependencies": [],
-  "bs-dev-dependencies": ["rescript-vitest"]
+  "dependencies": [],
+  "dev-dependencies": ["rescript-vitest"]
 }

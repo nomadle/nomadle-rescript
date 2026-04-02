@@ -33,25 +33,25 @@
     "src"
   ],
   "scripts": {
-    "build": "rescript build",
+    "build": "rescript",
     "clean": "rescript clean",
-    "dev": "rescript build -w",
+    "dev": "rescript watch",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepublishOnly": "rescript build"
+    "prepublishOnly": "rescript"
   },
   "peerDependencies": {
     "@rescript/react": "^0.11.0 || ^0.12.0 || ^0.13.0",
     "i18next": "^26.0.0",
     "react-i18next": "^17.0.0",
-    "rescript": "^11.0.0"
+    "rescript": "^11.0.0 || ^12.0.0"
   },
   "devDependencies": {
     "@nomadle/rescript-i18next": "workspace:^",
     "@rescript/react": "^0.11.0",
     "i18next": "^26.0.3",
     "react-i18next": "^17.0.2",
-    "rescript": "^11.1.4",
+    "rescript": "^12.0.0",
     "rescript-vitest": "^2.1.1",
     "vitest": "^3.2.4"
   }

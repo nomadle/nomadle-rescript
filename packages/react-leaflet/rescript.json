@@ -16,12 +16,11 @@
     "in-source": false
   },
   "suffix": ".bs.js",
-  "bsc-flags": ["-bs-super-errors"],
-  "bs-dependencies": [
+  "dependencies": [
     "@rescript/react",
     "@nomadle/rescript-leaflet"
   ],
-  "bs-dev-dependencies": [
+  "dev-dependencies": [
     "rescript-vitest"
   ],
   "generators": ["rescript-vitest"]
