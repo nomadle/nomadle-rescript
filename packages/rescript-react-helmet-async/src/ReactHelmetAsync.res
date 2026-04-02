@@ -44,7 +44,7 @@ external make: (
 
 module HelmetProviderSSR = {
   @module("react-helmet-async")
-  external make: (~children: React.element, ~context: '{}=?) => React.element =
+  external make: (~children: React.element, ~context: {..}=?) => React.element =
     "HelmetProvider"
 }
 
