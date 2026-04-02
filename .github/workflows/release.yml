@@ -33,8 +33,10 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build Packages
-        run: pnpm build
+      - name: Clean and Build Packages
+        run: |
+          pnpm -r clean
+          pnpm build
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
