@@ -51,7 +51,7 @@ module Point = {
 
 module Icon = {
   type t
-  type options = Js.t<{.}>
+  type options = {}
   type defaultOptions = {
     iconUrl: string,
     iconRetinaUrl?: string,
@@ -70,24 +70,24 @@ module Icon = {
   external create: defaultOptions => t = "Icon"
 
   @module("leaflet") @new
-  external divIcon: Js.t<{..}> => t = "DivIcon"
+  external divIcon: {..} => t = "DivIcon"
 
   let createDefault = (~iconUrl, ~iconSize=?, ~iconAnchor=?, ~popupAnchor=?, ()) => {
-    let options = Js.Dict.empty()
-    Js.Dict.set(options, "iconUrl", iconUrl->Obj.magic)
+    let options = Dict.empty()
+    Dict.set(options, "iconUrl", iconUrl->Obj.magic)
 
     switch iconSize {
-    | Some((w, h)) => Js.Dict.set(options, "iconSize", [w, h]->Obj.magic)
+    | Some((w, h)) => Dict.set(options, "iconSize", [w, h]->Obj.magic)
     | None => ()
     }
 
     switch iconAnchor {
-    | Some((x, y)) => Js.Dict.set(options, "iconAnchor", [x, y]->Obj.magic)
+    | Some((x, y)) => Dict.set(options, "iconAnchor", [x, y]->Obj.magic)
     | None => ()
     }
 
     switch popupAnchor {
-    | Some((x, y)) => Js.Dict.set(options, "popupAnchor", [x, y]->Obj.magic)
+    | Some((x, y)) => Dict.set(options, "popupAnchor", [x, y]->Obj.magic)
     | None => ()
     }
 
@@ -95,30 +95,30 @@ module Icon = {
   }
 
   let createDivIcon = (~html=?, ~className=?, ~iconSize=?, ~iconAnchor=?, ~popupAnchor=?, ()) => {
-    let options = Js.Dict.empty()
+    let options = Dict.empty()
 
     switch html {
-    | Some(h) => Js.Dict.set(options, "html", h->Obj.magic)
+    | Some(h) => Dict.set(options, "html", h->Obj.magic)
     | None => ()
     }
 
     switch className {
-    | Some(c) => Js.Dict.set(options, "className", c->Obj.magic)
+    | Some(c) => Dict.set(options, "className", c->Obj.magic)
     | None => ()
     }
 
     switch iconSize {
-    | Some((w, h)) => Js.Dict.set(options, "iconSize", [w, h]->Obj.magic)
+    | Some((w, h)) => Dict.set(options, "iconSize", [w, h]->Obj.magic)
     | None => ()
     }
 
     switch iconAnchor {
-    | Some((x, y)) => Js.Dict.set(options, "iconAnchor", [x, y]->Obj.magic)
+    | Some((x, y)) => Dict.set(options, "iconAnchor", [x, y]->Obj.magic)
     | None => ()
     }
 
     switch popupAnchor {
-    | Some((x, y)) => Js.Dict.set(options, "popupAnchor", [x, y]->Obj.magic)
+    | Some((x, y)) => Dict.set(options, "popupAnchor", [x, y]->Obj.magic)
     | None => ()
     }
 
@@ -224,8 +224,8 @@ module Marker = {
   @send external setZIndexOffset: (t, int) => unit = "setZIndexOffset"
   @send external setDraggable: (t, bool) => unit = "setDraggable"
   @send external getLatLng: t => position = "getLatLng"
-  @send external getPopup: t => Js.Nullable.t<Js.t<{..}>> = "getPopup"
-  @send external getTooltip: t => Js.Nullable.t<Js.t<{..}>> = "getTooltip"
+  @send external getPopup: t => Nullable.t<{..}> = "getPopup"
+  @send external getTooltip: t => Nullable.t<{..}> = "getTooltip"
   @send external isPopupOpen: t => bool = "isPopupOpen"
   @send external isTooltipOpen: t => bool = "isTooltipOpen"
 }
@@ -299,7 +299,7 @@ module ImageOverlay = {
   type t
 
   @module("leaflet") @new
-  external create: (~url: string, ~bounds: LatLngBounds.t, ~options: Js.t<{..}>=?, unit) => t = "ImageOverlay"
+  external create: (~url: string, ~bounds: LatLngBounds.t, ~options: {..}=?, unit) => t = "ImageOverlay"
 
   @send external addTo: (t, map) => t = "addTo"
   @send external remove: t => unit = "remove"
@@ -311,12 +311,12 @@ module GeoJSON = {
   type t
 
   @module("leaflet") @new
-  external create: (~data: Js.t<{..}>, ~options: Js.t<{..}>=?, unit) => t = "GeoJSON"
+  external create: (~data: {..}, ~options: {..}=?, unit) => t = "GeoJSON"
 
   @send external addTo: (t, map) => t = "addTo"
   @send external remove: t => unit = "remove"
   @send external clearLayers: t => unit = "clearLayers"
-  @send external addData: (t, Js.t<{..}>) => unit = "addData"
+  @send external addData: (t, {..}) => unit = "addData"
 }
 
 module LayerGroup = {
@@ -373,7 +373,7 @@ module ScaleControl = {
   type t
 
   @module("leaflet") @new
-  external create: (~options: Js.t<{..}>=?, unit) => t = "ScaleControl"
+  external create: (~options: {..}=?, unit) => t = "ScaleControl"
 
   @send external addTo: (t, map) => t = "addTo"
   @send external remove: t => unit = "remove"
@@ -386,23 +386,23 @@ module Map = {
   type t = map
 
   @module("leaflet") @new
-  external create: (Dom.element, ~options: Js.t<{..}>=?, unit) => t = "Map"
+  external create: (Dom.element, ~options: {..}=?, unit) => t = "Map"
 
   @send external addLayer: (t, map) => t = "addLayer"
   @send external removeLayer: (t, map) => t = "removeLayer"
   @send external hasLayer: (t, map) => bool = "hasLayer"
 
-  @send external setView: (t, position, ~zoom: int=?, ~options: Js.t<{..}>=?, unit) => t = "setView"
-  @send external setZoom: (t, int, ~options: Js.t<{..}>=?, unit) => t = "setZoom"
-  @send external zoomIn: (t, ~delta: float=?, ~options: Js.t<{..}>=?, unit) => t = "zoomIn"
-  @send external zoomOut: (t, ~delta: float=?, ~options: Js.t<{..}>=?, unit) => t = "zoomOut"
-  @send external setZoomAround: (t, position, int, ~options: Js.t<{..}>=?, unit) => t = "setZoomAround"
-  @send external fitBounds: (t, LatLngBounds.t, ~options: Js.t<{..}>=?, unit) => t = "fitBounds"
+  @send external setView: (t, position, ~zoom: int=?, ~options: {..}=?, unit) => t = "setView"
+  @send external setZoom: (t, int, ~options: {..}=?, unit) => t = "setZoom"
+  @send external zoomIn: (t, ~delta: float=?, ~options: {..}=?, unit) => t = "zoomIn"
+  @send external zoomOut: (t, ~delta: float=?, ~options: {..}=?, unit) => t = "zoomOut"
+  @send external setZoomAround: (t, position, int, ~options: {..}=?, unit) => t = "setZoomAround"
+  @send external fitBounds: (t, LatLngBounds.t, ~options: {..}=?, unit) => t = "fitBounds"
 
-  @send external panTo: (t, position, ~options: Js.t<{..}>=?, unit) => t = "panTo"
-  @send external panBy: (t, (float, float), ~options: Js.t<{..}>=?, unit) => t = "panBy"
-  @send external flyTo: (t, position, ~zoom: int=?, ~options: Js.t<{..}>=?, unit) => t = "flyTo"
-  @send external flyToBounds: (t, LatLngBounds.t, ~options: Js.t<{..}>=?, unit) => t = "flyToBounds"
+  @send external panTo: (t, position, ~options: {..}=?, unit) => t = "panTo"
+  @send external panBy: (t, (float, float), ~options: {..}=?, unit) => t = "panBy"
+  @send external flyTo: (t, position, ~zoom: int=?, ~options: {..}=?, unit) => t = "flyTo"
+  @send external flyToBounds: (t, LatLngBounds.t, ~options: {..}=?, unit) => t = "flyToBounds"
 
   @send external getCenter: t => LatLng.t = "getCenter"
   @send external getZoom: t => int = "getZoom"
@@ -410,7 +410,7 @@ module Map = {
   @send external getMinZoom: t => int = "getMinZoom"
   @send external getMaxZoom: t => int = "getMaxZoom"
 
-  @send external invalidateSize: (t, ~options: Js.t<{..}>=?, unit) => t = "invalidateSize"
+  @send external invalidateSize: (t, ~options: {..}=?, unit) => t = "invalidateSize"
 
   @send external addControl: (t, Control.t) => t = "addControl"
   @send external removeControl: (t, Control.t) => t = "removeControl"
@@ -420,7 +420,7 @@ module Map = {
   @send external once: (t, string, 'event => unit) => t = "once"
 
   @send external getContainer: t => Dom.element = "getContainer"
-  @send external getPanes: t => Js.t<{..}> = "getPanes"
+  @send external getPanes: t => {..} = "getPanes"
 
   @send external closePopup: t => unit = "closePopup"
   @send external closeTooltip: t => unit = "closeTooltip"

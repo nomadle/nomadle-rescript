@@ -100,7 +100,7 @@ let getOrCreateModel = (name: string, schema: schema<'a>): model<'a> => {
       }
     })()
   `)
-  switch Js.Nullable.toOption(existingModel) {
+  switch Nullable.toOption(existingModel) {
   | Some(m) => m
   | None => model(name, schema)
   }
@@ -171,8 +171,8 @@ external aggregate: (model<'a>, array<'pipeline>) => aggregation<array<'result>>
 @send external save: document<'a> => promise<document<'a>> = "save"
 @send external remove: document<'a> => promise<unit> = "remove"
 @send external deleteOneDoc: document<'a> => promise<unit> = "deleteOne"
-@send external toObject: (document<'a>, ~options: 'opts=?) => Js.Dict.t<Js.Json.t> = "toObject"
-@send external toJSON: document<'a> => Js.Json.t = "toJSON"
+@send external toObject: (document<'a>, ~options: 'opts=?) => dict<JSON.t> = "toObject"
+@send external toJSON: document<'a> => JSON.t = "toJSON"
 @send external markModified: (document<'a>, string) => unit = "markModified"
 @send external isModified: (document<'a>, string) => bool = "isModified"
 @send external isNew: document<'a> => bool = "isNew"
@@ -233,9 +233,9 @@ module SchemaTypes = {
 
   // Array type helpers - these output [Type] for Mongoose arrays
   // Mongoose is imported at the top of the generated JS file
-  let stringArray: array<Js.Json.t> = %raw(`[Mongoose.Schema.Types.String]`)
-  let numberArray: array<Js.Json.t> = %raw(`[Mongoose.Schema.Types.Number]`)
-  let mixedArray: array<Js.Json.t> = %raw(`[Mongoose.Schema.Types.Mixed]`)
+  let stringArray: array<JSON.t> = %raw(`[Mongoose.Schema.Types.String]`)
+  let numberArray: array<JSON.t> = %raw(`[Mongoose.Schema.Types.Number]`)
+  let mixedArray: array<JSON.t> = %raw(`[Mongoose.Schema.Types.Mixed]`)
 
   @module("mongoose") @scope(("Schema", "Types")) @val
   external mixed: 'a = "Mixed"

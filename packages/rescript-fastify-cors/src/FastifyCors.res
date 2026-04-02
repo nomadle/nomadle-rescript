@@ -12,7 +12,7 @@ type corsOptions = {
   maxAge?: int,
 }
 
-type t = (fastifyInstance, corsOptions, unit) => Js.Promise.t<unit>
+type t = (fastifyInstance, corsOptions, unit) => promise<unit>
 
 @module("@fastify/cors")
 external default: t = "default"

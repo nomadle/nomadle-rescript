@@ -4,7 +4,7 @@
 // Import i18n type from I18next module
 type i18n = I18next.t
 
-type tFunctionOptions = Js.Dict.t<string>
+type tFunctionOptions = dict<string>
 type tFunction = (
   string,
   ~options: tFunctionOptions=?,
@@ -26,7 +26,7 @@ module Trans = {
   @module("react-i18next") @react.component
   external make: (
     ~i18nKey: string,
-    ~values: Js.Dict.t<string>=?,
+    ~values: dict<string>=?,
     ~components: array<React.element>=?,
     ~children: React.element=?,
   ) => React.element = "Trans"
@@ -63,7 +63,7 @@ external withTranslation: string => ('component => 'component) = "withTranslatio
 
 // SSR related
 @module("react-i18next")
-external useSSR: (Js.Dict.t<'a>, string) => unit = "useSSR"
+external useSSR: (dict<'a>, string) => unit = "useSSR"
 
 // initReactI18next plugin
 @module("react-i18next") @val
@@ -92,13 +92,13 @@ external getI18n: unit => i18n = "getI18n"
 @get external language: i18n => string = "language"
 
 // Change language
-@send external changeLanguage: (i18n, string) => Js.Promise.t<tFunction> = "changeLanguage"
+@send external changeLanguage: (i18n, string) => promise<tFunction> = "changeLanguage"
 
 // Check if resource bundle exists
 @send external hasResourceBundle: (i18n, string, string) => bool = "hasResourceBundle"
 
 // Load namespaces
-@send external loadNamespaces: (i18n, array<string>) => Js.Promise.t<unit> = "loadNamespaces"
+@send external loadNamespaces: (i18n, array<string>) => promise<unit> = "loadNamespaces"
 
 // Identity function for i18n type
 let i = (x: i18n) => x

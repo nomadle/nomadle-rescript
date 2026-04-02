@@ -21,8 +21,8 @@ type applicationCanvasOptions = {
 
 // Application creation (v8 API)
 @module("pixi.js") @new external createApplication: unit => application = "Application"
-@send external init: (application, applicationOptions) => Js.Promise.t<unit> = "init"
-@send external initWithCanvas: (application, applicationCanvasOptions) => Js.Promise.t<unit> = "init"
+@send external init: (application, applicationOptions) => promise<unit> = "init"
+@send external initWithCanvas: (application, applicationCanvasOptions) => promise<unit> = "init"
 
 // Application methods
 @get external canvas: application => Dom.element = "canvas"
@@ -78,7 +78,7 @@ type textureOptions = {
 type sprite = displayObject
 type texture
 @module("pixi.js") @scope("Texture")
-external fromURL: string => Js.Promise.t<texture> = "from"
+external fromURL: string => promise<texture> = "from"
 @module("pixi.js") @new external createSprite: texture => sprite = "Sprite"
 @set external setSpriteAnchor: (sprite, float) => unit = "anchor"
 

@@ -23,8 +23,8 @@ type color = (int, int, int, float)
 
 type editorInstace
 // Module to access methods exposed by the react-avatar-editor instance via a ref.
-let getEditorInstance = (ref: React.ref<Js.Nullable.t<Dom.element>>): option<editorInstace> => {
-  switch Js.Nullable.toOption(ref.current) {
+let getEditorInstance = (ref: React.ref<Nullable.t<Dom.element>>): option<editorInstace> => {
+  switch Nullable.toOption(ref.current) {
   | Some(value) => Some((Obj.magic(value): editorInstace))
   | None => None
   }
@@ -59,5 +59,5 @@ external make: (
   ~onMouseMove: ReactEvent.Mouse.t => unit=?,
   ~onImageChange: unit => unit=?,
   ~onPositionChange: position => unit=?,
-  ~ref: React.ref<Js.Nullable.t<editorInstace>>=?,
+  ~ref: React.ref<Nullable.t<editorInstace>>=?,
 ) => React.element = "default"

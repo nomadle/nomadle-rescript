@@ -55,11 +55,11 @@ module Helmet = {
     ~title: string=?,
     ~titleTemplate: string=?,
     ~defaultTitle: string=?,
-    ~htmlAttributes: Js.Dict.t<string>=?,
-    ~bodyAttributes: Js.Dict.t<string>=?,
-    ~meta: array<Js.Dict.t<string>>=?,
-    ~link: array<Js.Dict.t<string>>=?,
-    ~script: array<Js.Dict.t<string>>=?,
+    ~htmlAttributes: dict<string>=?,
+    ~bodyAttributes: dict<string>=?,
+    ~meta: array<dict<string>>=?,
+    ~link: array<dict<string>>=?,
+    ~script: array<dict<string>>=?,
     ~children: React.element=?,
   ) => React.element = "Helmet"
 }
@@ -68,53 +68,53 @@ module Helmet = {
 @send external renderStatic: helmetData => helmetServerState = "renderStatic"
 
 // Helper functions for meta tags
-let metaName = (name: string, content: string): Js.Dict.t<string> => {
-  let meta = Js.Dict.empty()
-  Js.Dict.set(meta, "name", name)
-  Js.Dict.set(meta, "content", content)
+let metaName = (name: string, content: string): dict<string> => {
+  let meta = Dict.empty()
+  Dict.set(meta, "name", name)
+  Dict.set(meta, "content", content)
   meta
 }
 
-let metaProperty = (property: string, content: string): Js.Dict.t<string> => {
-  let meta = Js.Dict.empty()
-  Js.Dict.set(meta, "property", property)
-  Js.Dict.set(meta, "content", content)
+let metaProperty = (property: string, content: string): dict<string> => {
+  let meta = Dict.empty()
+  Dict.set(meta, "property", property)
+  Dict.set(meta, "content", content)
   meta
 }
 
-let metaCharset = (charset: string): Js.Dict.t<string> => {
-  let meta = Js.Dict.empty()
-  Js.Dict.set(meta, "charset", charset)
+let metaCharset = (charset: string): dict<string> => {
+  let meta = Dict.empty()
+  Dict.set(meta, "charset", charset)
   meta
 }
 
 // Helper functions for link tags
-let linkStylesheet = (href: string): Js.Dict.t<string> => {
-  let link = Js.Dict.empty()
-  Js.Dict.set(link, "rel", "stylesheet")
-  Js.Dict.set(link, "href", href)
+let linkStylesheet = (href: string): dict<string> => {
+  let link = Dict.empty()
+  Dict.set(link, "rel", "stylesheet")
+  Dict.set(link, "href", href)
   link
 }
 
-let linkCanonical = (href: string): Js.Dict.t<string> => {
-  let link = Js.Dict.empty()
-  Js.Dict.set(link, "rel", "canonical")
-  Js.Dict.set(link, "href", href)
+let linkCanonical = (href: string): dict<string> => {
+  let link = Dict.empty()
+  Dict.set(link, "rel", "canonical")
+  Dict.set(link, "href", href)
   link
 }
 
-let linkAlternate = (href: string, hreflang: string): Js.Dict.t<string> => {
-  let link = Js.Dict.empty()
-  Js.Dict.set(link, "rel", "alternate")
-  Js.Dict.set(link, "hreflang", hreflang)
-  Js.Dict.set(link, "href", href)
+let linkAlternate = (href: string, hreflang: string): dict<string> => {
+  let link = Dict.empty()
+  Dict.set(link, "rel", "alternate")
+  Dict.set(link, "hreflang", hreflang)
+  Dict.set(link, "href", href)
   link
 }
 
-let script = (~type_=?, ~src=?, ()): Js.Dict.t<string> => {
-  let s = Js.Dict.empty()
-  type_->Belt.Option.forEach(t => Js.Dict.set(s, "type", t))
-  src->Belt.Option.forEach(s_ => Js.Dict.set(s, "src", s_))
+let script = (~type_=?, ~src=?, ()): dict<string> => {
+  let s = Dict.empty()
+  type_->Belt.Option.forEach(t => Dict.set(s, "type", t))
+  src->Belt.Option.forEach(s_ => Dict.set(s, "src", s_))
   s
 }
 

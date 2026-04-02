@@ -23,10 +23,10 @@ type handler = (request, reply) => promise<unit>
 type syncHandler = (request, reply) => unit
 
 // Request/Reply helpers
-@get external getHeaders: request => Js.Dict.t<string> = "headers"
+@get external getHeaders: request => dict<string> = "headers"
 @get external getBody: request => 'a = "body"
-@get external getParams: request => Js.Dict.t<string> = "params"
-@get external getQuery: request => Js.Dict.t<string> = "query"
+@get external getParams: request => dict<string> = "params"
+@get external getQuery: request => dict<string> = "query"
 @get external getUrl: request => string = "url"
 @get external getRaw: request => 'a = "raw"
 

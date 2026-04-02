@@ -2,7 +2,7 @@
 type t
 
 // t function type - supports both t(key) and t(key, options) calls
-type tFunctionOptions = Js.Dict.t<string>
+type tFunctionOptions = dict<string>
 type tFunction = (
   string,
   ~options: tFunctionOptions=?,
@@ -45,7 +45,7 @@ type tOptions = {
   defaultValue?: string,
   count?: int,
   context?: string,
-  replace?: Js.Dict.t<string>,
+  replace?: dict<string>,
   lng?: string,
   fallbackLng?: string,
   ns?: string,
@@ -60,55 +60,55 @@ type addResourceOptions = {
 // Core i18n instance methods and properties
 @get external language: t => string = "language"
 @get external languages: t => array<string> = "languages"
-@get external resolvedLanguage: t => Js.Nullable.t<string> = "resolvedLanguage"
+@get external resolvedLanguage: t => Nullable.t<string> = "resolvedLanguage"
 
 // Change language methods (multiple signatures)
-@send external changeLanguage: (t, string) => Js.Promise.t<tFunction> = "changeLanguage"
-@send external changeLanguageWithCallback: (t, string, (Js.Nullable.t<'error>, tFunction) => unit) => Js.Promise.t<tFunction> = "changeLanguage"
-@send external changeLanguageDefault: t => Js.Promise.t<tFunction> = "changeLanguage"
+@send external changeLanguage: (t, string) => promise<tFunction> = "changeLanguage"
+@send external changeLanguageWithCallback: (t, string, (Nullable.t<'error>, tFunction) => unit) => promise<tFunction> = "changeLanguage"
+@send external changeLanguageDefault: t => promise<tFunction> = "changeLanguage"
 
 // Translation and existence methods
 @send external exists: (t, string) => bool = "exists"
 @send external existsWithOptions: (t, string, tOptions) => bool = "exists"
 
 // Resource management methods
-@send external getResource: (t, string, string, string) => Js.Nullable.t<'a> = "getResource"
+@send external getResource: (t, string, string, string) => Nullable.t<'a> = "getResource"
 @send external addResource: (t, string, string, string, string) => t = "addResource"
 @send external addResourceWithOptions: (t, string, string, string, string, addResourceOptions) => t = "addResource"
-@send external addResources: (t, string, string, Js.Dict.t<'a>) => t = "addResources"
+@send external addResources: (t, string, string, dict<'a>) => t = "addResources"
 
 // Bundle management methods
 @send external addResourceBundle: (
   t,
   string,
   string,
-  Js.Dict.t<'a>,
+  dict<'a>,
   ~overwrite: bool=?, 
   ~nest: bool=?,  
 ) => t = "addResourceBundle"
-@send external addResourceBundleWithOptions: (t, string, string, Js.Dict.t<'a>, bool, bool) => t = "addResourceBundle"
+@send external addResourceBundleWithOptions: (t, string, string, dict<'a>, bool, bool) => t = "addResourceBundle"
 @send external hasResourceBundle: (
   .
   t,         // The i18next instance
   string,    // lng (language)
   string     // ns (namespace)
 ) => bool = "hasResourceBundle"
-@send external getResourceBundle: (t, string, string) => Js.Nullable.t<Js.Dict.t<'a>> = "getResourceBundle"
+@send external getResourceBundle: (t, string, string) => Nullable.t<dict<'a>> = "getResourceBundle"
 @send external removeResourceBundle: (t, string, string) => t = "removeResourceBundle"
 
 // Loading methods
-@send external loadNamespaces: (t, array<string>) => Js.Promise.t<unit> = "loadNamespaces"
-@send external loadNamespacesWithCallback: (t, array<string>, (Js.Nullable.t<'error>, tFunction) => unit) => Js.Promise.t<unit> = "loadNamespaces"
-@send external loadLanguages: (t, array<string>) => Js.Promise.t<unit> = "loadLanguages"
-@send external loadLanguagesWithCallback: (t, array<string>, (Js.Nullable.t<'error>, tFunction) => unit) => Js.Promise.t<unit> = "loadLanguages"
+@send external loadNamespaces: (t, array<string>) => promise<unit> = "loadNamespaces"
+@send external loadNamespacesWithCallback: (t, array<string>, (Nullable.t<'error>, tFunction) => unit) => promise<unit> = "loadNamespaces"
+@send external loadLanguages: (t, array<string>) => promise<unit> = "loadLanguages"
+@send external loadLanguagesWithCallback: (t, array<string>, (Nullable.t<'error>, tFunction) => unit) => promise<unit> = "loadLanguages"
 
 // Reload methods
-@send external reloadResources: t => Js.Promise.t<unit> = "reloadResources"
-@send external reloadResourcesWithLangs: (t, array<string>) => Js.Promise.t<unit> = "reloadResources"
-@send external reloadResourcesWithLangsAndNs: (t, array<string>, array<string>) => Js.Promise.t<unit> = "reloadResources"
+@send external reloadResources: t => promise<unit> = "reloadResources"
+@send external reloadResourcesWithLangs: (t, array<string>) => promise<unit> = "reloadResources"
+@send external reloadResourcesWithLangsAndNs: (t, array<string>, array<string>) => promise<unit> = "reloadResources"
 
 // Data and utility methods
-@send external getDataByLanguage: (t, string) => Js.Nullable.t<Js.Dict.t<'a>> = "getDataByLanguage"
+@send external getDataByLanguage: (t, string) => Nullable.t<dict<'a>> = "getDataByLanguage"
 @send external hasLoadedNamespace: (t, string) => bool = "hasLoadedNamespace"
 @send external dir: (t, string) => string = "dir"
 @send external dirDefault: t => string = "dir"
@@ -127,14 +127,14 @@ type addResourceOptions = {
 @module("i18next") @val
 external i18n: t = "default"
 
-@send external init: t => Js.Promise.t<tFunction> = "init"
-@send external initWithOptions: (t, initOptions) => Js.Promise.t<tFunction> = "init"
-@send external initWithCallback: (t, (Js.Nullable.t<'error>, tFunction) => unit) => Js.Promise.t<tFunction> = "init"
-@send external initWithOptionsAndCallback: (t, initOptions, (Js.Nullable.t<'error>, tFunction) => unit) => Js.Promise.t<tFunction> = "init"
+@send external init: t => promise<tFunction> = "init"
+@send external initWithOptions: (t, initOptions) => promise<tFunction> = "init"
+@send external initWithCallback: (t, (Nullable.t<'error>, tFunction) => unit) => promise<tFunction> = "init"
+@send external initWithOptionsAndCallback: (t, initOptions, (Nullable.t<'error>, tFunction) => unit) => promise<tFunction> = "init"
 
 @send external use: (t, 'plugin) => t = "use"
 
-@send external loadResources: (t, (Js.Nullable.t<'error>) => unit) => unit = "loadResources"
+@send external loadResources: (t, (Nullable.t<'error>) => unit) => unit = "loadResources"
 @send external loadResourcesDefault: t => unit = "loadResources"
 
 // Helper to create tOptions

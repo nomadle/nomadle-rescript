@@ -78,7 +78,7 @@ module ListboxOption = {
   @module("@headlessui/react") @react.component
   external make: (
     ~value: 'a,
-    ~children: Js.t<{"active": bool, "selected": bool}> => React.element,
+    ~children: {. "active": bool, "selected": bool} => React.element,
     ~className: string=?,
     ~disabled: bool=?,
   ) => React.element = "ListboxOption"

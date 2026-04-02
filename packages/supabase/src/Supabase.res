@@ -82,7 +82,7 @@ type authData = {
 
 type authResponse = {
   data: option<authData>,
-  error: Js.Nullable.t<error>,
+  error: Nullable.t<error>,
 }
 
 type authError = {
@@ -109,52 +109,52 @@ type auth
 
 // Auth methods
 @send
-external signUp: (auth, {"email": string, "password": string}) => Js.Promise.t<authResponse> =
+external signUp: (auth, {"email": string, "password": string}) => promise<authResponse> =
   "signUp"
 @send
 external signInWithPassword: (
   auth,
   {"email": string, "password": string},
-) => Js.Promise.t<authResponse> = "signInWithPassword"
-@send external signOut: auth => Js.Promise.t<{"error": Js.Nullable.t<error>}> = "signOut"
+) => promise<authResponse> = "signInWithPassword"
+@send external signOut: auth => promise<{"error": Nullable.t<error>}> = "signOut"
 @send
 external resetPasswordForEmail: (
   auth,
   string,
   {"redirectTo": string},
-) => Js.Promise.t<{
-  "error": Js.Nullable.t<error>,
+) => promise<{
+  "error": Nullable.t<error>,
 }> = "resetPasswordForEmail"
 @send
-external getUser: auth => Js.Promise.t<{
-  "data": Js.Nullable.t<{
+external getUser: auth => promise<{
+  "data": Nullable.t<{
     "user": option<user>,
   }>,
-  "error": Js.Nullable.t<error>,
+  "error": Nullable.t<error>,
 }> = "getUser"
 @send
-external getSession: auth => Js.Promise.t<{
-  "data": Js.Nullable.t<{
+external getSession: auth => promise<{
+  "data": Nullable.t<{
     "session": option<session>,
   }>,
-  "error": Js.Nullable.t<error>,
+  "error": Nullable.t<error>,
 }> = "getSession"
-@send external updateUser: (auth, updateUserAttributes) => Js.Promise.t<authResponse> = "updateUser"
+@send external updateUser: (auth, updateUserAttributes) => promise<authResponse> = "updateUser"
 @send
 external onAuthStateChange: (
   auth,
-  (string, Js.Nullable.t<session>) => unit,
-) => {"data": Js.Nullable.t<{"subscription": Js.Nullable.t<{"unsubscribe": unit => unit}>}>} =
+  (string, Nullable.t<session>) => unit,
+) => {"data": Nullable.t<{"subscription": Nullable.t<{"unsubscribe": unit => unit}>}>} =
   "onAuthStateChange"
 @send
 external signInWithOAuth: (
   auth,
   {"provider": string},
-) => Js.Promise.t<{
+) => promise<{
   "data": option<{
     "url": string,
   }>,
-  "error": Js.Nullable.t<error>,
+  "error": Nullable.t<error>,
 }> = "signInWithOAuth"
 
 // Storage types
@@ -166,7 +166,7 @@ type uploadOptions = {
 
 type uploadResponse = {
   data: option<{"path": string}>,
-  error: Js.Nullable.t<error>,
+  error: Nullable.t<error>,
 }
 
 type publicUrlResponse = {data: {"publicUrl": string}}
@@ -176,24 +176,24 @@ type bucket
 
 // Bucket methods
 @send
-external upload: (bucket, string, Webapi.Blob.t, uploadOptions) => Js.Promise.t<uploadResponse> =
+external upload: (bucket, string, Webapi.Blob.t, uploadOptions) => promise<uploadResponse> =
   "upload"
 @send external getPublicUrl: (bucket, string) => publicUrlResponse = "getPublicUrl"
 @send
 external download: (
   bucket,
   string,
-) => Js.Promise.t<{
+) => promise<{
   "data": option<Js.TypedArray2.ArrayBuffer.t>,
-  "error": Js.Nullable.t<error>,
+  "error": Nullable.t<error>,
 }> = "download"
 @send
 external remove: (
   bucket,
   array<string>,
-) => Js.Promise.t<{
+) => promise<{
   "data": option<array<{"name": string}>>,
-  "error": Js.Nullable.t<error>,
+  "error": Nullable.t<error>,
 }> = "remove"
 @send
 external list: (
@@ -207,20 +207,20 @@ external list: (
       "order": string,
     }>,
   }>,
-) => Js.Promise.t<{
+) => promise<{
   "data": option<array<{"name": string, "id": string, "updated_at": string, "created_at": string}>>,
-  "error": Js.Nullable.t<error>,
+  "error": Nullable.t<error>,
 }> = "list"
 @send
 external createSignedUrl: (
   bucket,
   string,
   int,
-) => Js.Promise.t<{
+) => promise<{
   "data": option<{
     "signedUrl": string,
   }>,
-  "error": Js.Nullable.t<error>,
+  "error": Nullable.t<error>,
 }> = "createSignedUrl"
 
 // Storage type
@@ -234,7 +234,7 @@ type postgrestFilterBuilder<'a>
 type postgrestQueryBuilder<'a>
 type postgrestResponse<'a> = {
   data: option<'a>,
-  error: Js.Nullable.t<error>,
+  error: Nullable.t<error>,
   count: option<int>,
 }
 
@@ -276,7 +276,7 @@ external order: (
 ) => postgrestFilterBuilder<'a> = "order"
 
 // Execute query - returns promise
-external execute: postgrestFilterBuilder<'a> => Js.Promise.t<postgrestResponse<'a>> = "%identity"
+external execute: postgrestFilterBuilder<'a> => promise<postgrestResponse<'a>> = "%identity"
 
 // Client methods
 @get external auth: client => auth = "auth"

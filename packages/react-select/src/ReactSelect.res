@@ -32,8 +32,8 @@ module Select = {
   @module("react-select") @react.component
   external make: (
     ~options: array<selectOption>,
-    ~value: Js.Nullable.t<value>=?,
-    ~onChange: Js.Nullable.t<selectOption> => unit=?,
+    ~value: Nullable.t<value>=?,
+    ~onChange: Nullable.t<selectOption> => unit=?,
     ~placeholder: string=?,
     ~isClearable: bool=?,
     ~isSearchable: bool=?,
@@ -46,9 +46,9 @@ module Select = {
 module AsyncSelect = {
   @module("react-select/async") @react.component
   external make: (
-    ~loadOptions: string => Js.Promise.t<array<selectOption>>,
+    ~loadOptions: string => promise<array<selectOption>>,
     ~value: selectOption=?,
-    ~onChange: Js.Nullable.t<selectOption> => unit=?,
+    ~onChange: Nullable.t<selectOption> => unit=?,
     ~placeholder: string=?,
     ~isClearable: bool=?,
     ~isSearchable: bool=?,
@@ -64,7 +64,7 @@ module CreatableSelect = {
   external make: (
     ~options: array<selectOption>,
     ~value: selectOption=?,
-    ~onChange: Js.Nullable.t<selectOption> => unit=?,
+    ~onChange: Nullable.t<selectOption> => unit=?,
     ~onCreateOption: string => unit=?,
     ~placeholder: string=?,
     ~isClearable: bool=?,

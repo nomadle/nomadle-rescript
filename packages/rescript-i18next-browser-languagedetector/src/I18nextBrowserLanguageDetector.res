@@ -10,8 +10,8 @@ type i18nextService
 // Custom detector interface - using generic lookup
 type customDetector<'a> = {
   name: string,
-  lookup: Js.Dict.t<'a> => Js.Nullable.t<string>,
-  cacheUserLanguage?: (string, Js.Dict.t<'a>) => unit,
+  lookup: dict<'a> => Nullable.t<string>,
+  cacheUserLanguage?: (string, dict<'a>) => unit,
 }
 
 // Cookie options type
@@ -105,7 +105,7 @@ external detectorType: string = "type"
 @send external init: (t, detectorOptions) => unit = "init"
 
 // Detect language
-@send external detect: t => Js.Nullable.t<string> = "detect"
+@send external detect: t => Nullable.t<string> = "detect"
 
 // Cache user language
 @send external cacheUserLanguage: (t, string) => unit = "cacheUserLanguage"
@@ -210,8 +210,8 @@ let makeCookieOptions = (
 // Helper to create custom detector
 let makeCustomDetector = (
   ~name: string,
-  ~lookup: Js.Dict.t<'a> => Js.Nullable.t<string>,
-  ~cacheUserLanguage: option<(string, Js.Dict.t<'a>) => unit>=?,
+  ~lookup: dict<'a> => Nullable.t<string>,
+  ~cacheUserLanguage: option<(string, dict<'a>) => unit>=?,
   (),
 ): customDetector<'a> => {
   {
@@ -244,8 +244,8 @@ let urlOnlyOrder = ["querystring", "path", "subdomain", "hash"]
 let defaultOptions = makeDetectorOptions()
 
 // Utility function to convert nullable to option
-let getLanguageString = (result: Js.Nullable.t<string>): option<string> => {
-  result->Js.Nullable.toOption
+let getLanguageString = (result: Nullable.t<string>): option<string> => {
+  result->Nullable.toOption
 }
 
 // Export alias

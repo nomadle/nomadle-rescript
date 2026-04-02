@@ -146,7 +146,7 @@ describe("I18nextBrowserLanguageDetector", () => {
 
   describe("Custom detector", () => {
     test("makeCustomDetector should create detector", ctx => {
-      let lookup = (_opts) => Js.Nullable.null
+      let lookup = (_opts) => Nullable.null
       let detector = I18nextBrowserLanguageDetector.makeCustomDetector(
         ~name="myDetector",
         ~lookup,
@@ -156,7 +156,7 @@ describe("I18nextBrowserLanguageDetector", () => {
     })
 
     test("makeCustomDetector with cacheUserLanguage", ctx => {
-      let lookup = (_opts) => Js.Nullable.null
+      let lookup = (_opts) => Nullable.null
       let cache = (_lng, _opts) => ()
       let detector = I18nextBrowserLanguageDetector.makeCustomDetector(
         ~name="myDetector",
@@ -170,12 +170,12 @@ describe("I18nextBrowserLanguageDetector", () => {
 
   describe("Utility functions", () => {
     test("getLanguageString should convert null to None", ctx => {
-      let result = I18nextBrowserLanguageDetector.getLanguageString(Js.Nullable.null)
+      let result = I18nextBrowserLanguageDetector.getLanguageString(Nullable.null)
       ctx->expect(result)->Expect.toBe(None)
     })
 
     test("getLanguageString should convert value to Some", ctx => {
-      let result = I18nextBrowserLanguageDetector.getLanguageString(Js.Nullable.return("en"))
+      let result = I18nextBrowserLanguageDetector.getLanguageString(Nullable.make("en"))
       ctx->expect(result)->Expect.toEqual(Some("en"))
     })
   })

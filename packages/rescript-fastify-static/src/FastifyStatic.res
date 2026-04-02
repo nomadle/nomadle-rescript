@@ -11,7 +11,7 @@ type staticOptions = {
   wildcard?: bool,
 }
 
-type t = (fastifyInstance, staticOptions, unit) => Js.Promise.t<unit>
+type t = (fastifyInstance, staticOptions, unit) => promise<unit>
 
 @module("@fastify/static")
 external default: t = "default"
