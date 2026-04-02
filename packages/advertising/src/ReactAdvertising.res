@@ -6,8 +6,8 @@ type adSlotConfig = {
   id: string,
   path: string,
   sizes: array<(int, int)>,
-  prebid?: array<{"mediaTypes": {"banner": {"sizes": array<(int, int)>}}, "bids": array<{"bidder": string, "params": Js.Json.t}>}>,
-  targeting?: Js.Dict.t<string>,
+  prebid?: array<{"mediaTypes": {"banner": {"sizes": array<(int, int)>}}, "bids": array<{"bidder": string, "params": JSON.t}>}>,
+  targeting?: dict<string>,
   sizeMapping?: array<{"viewport": array<int>, "sizes": array<(int, int)>}>,
   lazyLoad?: bool,
 }
@@ -26,7 +26,7 @@ external makeProvider: (
   ~children: React.element,
   ~active: bool=?,
   ~collapseEmptyDivs: bool=?,
-  ~onError: Js.Exn.t => unit=?,
+  ~onError: JsExn.t => unit=?,
 ) => React.element = "AdvertisingProvider"
 
 // AdSlot component
