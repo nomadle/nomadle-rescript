@@ -17,7 +17,9 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
+    "@rescript/tools": "^0.6.6",
     "jsdom": "^26.1.0",
+    "rescript": "^12.0.0",
     "rescript-vitest": "^2.1.1",
     "vitest": "^3.2.4"
   },
