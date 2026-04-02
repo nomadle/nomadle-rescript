@@ -36,6 +36,8 @@ jobs:
       - name: Clean and Build Packages
         run: |
           pnpm -r clean
+          # Clean rescript-vitest to ensure v12 compatibility
+          find node_modules -path "*rescript-vitest*" -name "lib" -type d -exec rm -rf {} + 2>/dev/null || true
           pnpm build
 
       - name: Create Release Pull Request or Publish to npm
