@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@nomadle/rescript-mongoose.svg)](https://www.npmjs.com/package/@nomadle/rescript-mongoose)
+
 # @nomadle/rescript-mongoose
 
 ReScript bindings for [Mongoose](https://mongoosejs.com/) - elegant MongoDB object modeling for Node.js.

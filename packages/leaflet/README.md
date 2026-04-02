@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@nomadle/rescript-leaflet.svg)](https://www.npmjs.com/package/@nomadle/rescript-leaflet)
+
 # @nomadle/rescript-leaflet
 
 ReScript bindings for [Leaflet](https://leafletjs.com/) - the leading open-source JavaScript library for mobile-friendly interactive maps.

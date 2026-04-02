@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@nomadle/rescript-advertising.svg)](https://www.npmjs.com/package/@nomadle/rescript-advertising)
+
 # @nomadle/rescript-advertising
 
 ReScript bindings for [react-advertising](https://github.com/technology-ebay-de/react-advertising) - Display advertising via Google Ad Manager with Prebid.js support.

@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@nomadle/rescript-react-select.svg)](https://www.npmjs.com/package/@nomadle/rescript-react-select)
+
 # @nomadle/rescript-react-select
 
 ReScript bindings for [react-select](https://react-select.com/) - A flexible and beautiful Select Input control for React.

@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@nomadle/rescript-world-map.svg)](https://www.npmjs.com/package/@nomadle/rescript-world-map)
+
 # @nomadle/rescript-world-map
 
 ReScript bindings for [react-world-map](https://github.com/scottsidwell/react-world-map) - a simple, interactive SVG world map component for React.

@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@nomadle/rescript-headlessui.svg)](https://www.npmjs.com/package/@nomadle/rescript-headlessui)
+
 # @nomadle/rescript-headlessui
 
 ReScript bindings for [@headlessui/react](https://headlessui.com/react) - completely unstyled, fully accessible UI components for React.

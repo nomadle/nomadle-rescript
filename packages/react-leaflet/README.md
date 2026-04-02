@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@nomadle/rescript-react-leaflet.svg)](https://www.npmjs.com/package/@nomadle/rescript-react-leaflet)
+
 # @nomadle/rescript-react-leaflet
 
 ReScript bindings for [React-Leaflet](https://react-leaflet.js.org/).

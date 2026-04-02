@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@nomadle/rescript-supabase.svg)](https://www.npmjs.com/package/@nomadle/rescript-supabase)
+
 # @nomadle/rescript-supabase
 
 ReScript bindings for [@supabase/supabase-js](https://github.com/supabase/supabase-js) - the official Supabase JavaScript client.

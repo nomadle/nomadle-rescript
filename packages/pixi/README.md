@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@nomadle/rescript-pixi.svg)](https://www.npmjs.com/package/@nomadle/rescript-pixi)
+
 # @nomadle/rescript-pixi
 
 ReScript bindings for [pixi.js](https://pixijs.com/) (v8) and [@pixi/react](https://github.com/pixijs/pixi-react) - 2D WebGL renderer with React integration.

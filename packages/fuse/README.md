@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@nomadle/rescript-fuse.svg)](https://www.npmjs.com/package/@nomadle/rescript-fuse)
+
 # @nomadle/rescript-fuse
 
 ReScript bindings for [Fuse.js](https://www.fusejs.io/) - a lightweight fuzzy-search library.

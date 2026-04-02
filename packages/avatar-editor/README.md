@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/@nomadle/rescript-avatar-editor.svg)](https://www.npmjs.com/package/@nomadle/rescript-avatar-editor)
+
 # @nomadle/rescript-avatar-editor
 
 ReScript bindings for [react-avatar-editor](https://github.com/mosch/react-avatar-editor) - A Facebook-like avatar / profile picture component.
