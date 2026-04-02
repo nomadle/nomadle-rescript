@@ -36,8 +36,8 @@
     "build": "rescript",
     "clean": "rescript clean",
     "dev": "rescript watch",
-    "test": "vitest run",
-    "test:watch": "vitest",
+    "test": "vitest run --environment=node",
+    "test:watch": "vitest --environment=node",
     "prepublishOnly": "rescript"
   },
   "peerDependencies": {
