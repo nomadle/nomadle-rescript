@@ -19,8 +19,9 @@ describe("Fuse", () => {
       threshold: 0.4,
     })
     let results = fuse->Fuse.search("apple")
-    ctx->expect(Js.Array2.length(results))->Expect.toBe(1)
-    ctx->expect(results[0].item.name)->Expect.toBe("apple")
+    ctx->expect(Array.length(results))->Expect.toBe(1)
+    let result = results[0]->Option.getOr({Fuse.item: {name: ""}, refIndex: 0, score: None})
+    ctx->expect(result.item.name)->Expect.toBe("apple")
   })
 
   test("search should return multiple matches", ctx => {
@@ -30,7 +31,7 @@ describe("Fuse", () => {
       threshold: 0.4,
     })
     let results = fuse->Fuse.search("app")
-    ctx->expect(Js.Array2.length(results) >= 1)->Expect.toBe(true)
+    ctx->expect(Array.length(results) >= 1)->Expect.toBe(true)
   })
 
   test("search should return empty array for no matches", ctx => {
@@ -40,7 +41,7 @@ describe("Fuse", () => {
       threshold: 0.4,
     })
     let results = fuse->Fuse.search("xyz")
-    ctx->expect(Js.Array2.length(results))->Expect.toBe(0)
+    ctx->expect(Array.length(results))->Expect.toBe(0)
   })
 
   test("search results should have item and refIndex", ctx => {
@@ -50,7 +51,8 @@ describe("Fuse", () => {
       threshold: 0.4,
     })
     let results = fuse->Fuse.search("apple")
-    ctx->expect(results[0].item)->Expect.toBeTruthy
-    ctx->expect(results[0].refIndex)->Expect.toBe(0)
+    ctx->expect(results[0]->Option.isSome)->Expect.toBe(true)
+    let result = results[0]->Option.getOr({Fuse.item: {name: ""}, refIndex: 0, score: None})
+    ctx->expect(result.refIndex)->Expect.toBe(0)
   })
 })

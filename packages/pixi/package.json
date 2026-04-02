@@ -44,13 +44,13 @@
   },
   "peerDependencies": {
     "rescript": "^11.0.0 || ^12.0.0",
-    "@rescript/react": "^0.11.0 || ^0.12.0 || ^0.13.0",
+    "@rescript/react": "^0.14.0",
     "pixi.js": "^8.0.0",
     "@pixi/react": "^7.0.0"
   },
   "devDependencies": {
     "rescript": "^12.0.0",
-    "@rescript/react": "^0.11.0",
+    "@rescript/react": "^0.14.0",
     "rescript-vitest": "^2.1.1",
     "vitest": "^3.2.4"
   }

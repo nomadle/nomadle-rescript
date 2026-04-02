@@ -110,19 +110,19 @@ describe("I18nextBrowserLanguageDetector", () => {
 
   describe("Order constants", () => {
     test("allDetectorsOrder should have 9 items", ctx => {
-      ctx->expect(Js.Array2.length(I18nextBrowserLanguageDetector.allDetectorsOrder))->Expect.toBe(9)
+      ctx->expect(Array.length(I18nextBrowserLanguageDetector.allDetectorsOrder))->Expect.toBe(9)
     })
 
     test("browserOnlyOrder should have 2 items", ctx => {
-      ctx->expect(Js.Array2.length(I18nextBrowserLanguageDetector.browserOnlyOrder))->Expect.toBe(2)
+      ctx->expect(Array.length(I18nextBrowserLanguageDetector.browserOnlyOrder))->Expect.toBe(2)
     })
 
     test("storageOnlyOrder should have 3 items", ctx => {
-      ctx->expect(Js.Array2.length(I18nextBrowserLanguageDetector.storageOnlyOrder))->Expect.toBe(3)
+      ctx->expect(Array.length(I18nextBrowserLanguageDetector.storageOnlyOrder))->Expect.toBe(3)
     })
 
     test("urlOnlyOrder should have 4 items", ctx => {
-      ctx->expect(Js.Array2.length(I18nextBrowserLanguageDetector.urlOnlyOrder))->Expect.toBe(4)
+      ctx->expect(Array.length(I18nextBrowserLanguageDetector.urlOnlyOrder))->Expect.toBe(4)
     })
   })
 

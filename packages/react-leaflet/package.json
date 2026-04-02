@@ -41,14 +41,14 @@
   },
   "peerDependencies": {
     "rescript": "^11.0.0 || ^12.0.0",
-    "@rescript/react": "^0.11.0 || ^0.12.0 || ^0.13.0",
+    "@rescript/react": "^0.14.0",
     "leaflet": "^1.9.0",
     "react-leaflet": "^4.0.0 || ^5.0.0",
     "@nomadle/rescript-leaflet": ">=0.1.0"
   },
   "devDependencies": {
     "rescript": "^12.0.0",
-    "@rescript/react": "^0.11.0",
+    "@rescript/react": "^0.14.0",
     "rescript-vitest": "^2.1.1",
     "vitest": "^3.2.4"
   }

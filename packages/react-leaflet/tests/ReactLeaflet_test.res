@@ -66,6 +66,6 @@ describe("ReactLeaflet components", () => {
 
   test("bounds type is array of positions", ctx => {
     let bounds: Leaflet.bounds = [(51.5, -0.1), (51.51, -0.11)]
-    ctx->expect(Js.Array2.length(bounds))->Expect.toBe(2)
+    ctx->expect(Array.length(bounds))->Expect.toBe(2)
   })
 })

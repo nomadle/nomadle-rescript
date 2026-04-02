@@ -1,10 +1,10 @@
 type continent = [
-  | @as("na") #NorthAmerica
-  | @as("sa") #SouthAmerica
-  | @as("af") #Africa
-  | @as("eu") #Europe
-  | @as("as") #Asia
-  | @as("oc") #Oceania
+  | #NorthAmerica
+  | #SouthAmerica
+  | #Africa
+  | #Europe
+  | #Asia
+  | #Oceania
 ]
 
 let continentFromString = continentString => {

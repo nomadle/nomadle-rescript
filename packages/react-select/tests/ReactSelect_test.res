@@ -30,8 +30,9 @@ describe("ReactSelect", () => {
       {value: "c", label: "Option C"},
     ]
     
-    ctx->expect(Js.Array2.length(options))->Expect.toBe(3)
-    ctx->expect(options[0].label)->Expect.toBe("Option A")
+    ctx->expect(Array.length(options))->Expect.toBe(3)
+    let firstOption = options[0]->Option.getOr({value: "", label: ""})
+    ctx->expect(firstOption.label)->Expect.toBe("Option A")
   })
 
   test("actionMeta type should work", ctx => {
