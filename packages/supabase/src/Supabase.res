@@ -284,13 +284,3 @@ external execute: postgrestFilterBuilder<'a> => promise<postgrestResponse<'a>> =
 @send external fromTable: (client, string) => postgrestQueryBuilder<'a> = "from"
 
 // OAuth sign in - moved after auth type definition
-
-// Environment variables - using Vite's import.meta.env
-@val @scope("import.meta.env") external viteSupabaseUrl: option<string> = "VITE_SUPABASE_URL"
-@val @scope("import.meta.env") external viteSupabaseKey: option<string> = "VITE_SUPABASE_KEY"
-
-let supabaseUrl = viteSupabaseUrl->Belt.Option.getWithDefault("")
-let supabaseKey = viteSupabaseKey->Belt.Option.getWithDefault("")
-
-// Create client instance
-let supabase = createClient(supabaseUrl, supabaseKey)
