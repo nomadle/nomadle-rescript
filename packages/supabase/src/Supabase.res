@@ -281,7 +281,7 @@ external execute: postgrestFilterBuilder<'a> => promise<postgrestResponse<'a>> =
 // Client methods
 @get external auth: client => auth = "auth"
 @get external storage: client => storage = "storage"
-@get external fromTable: client => string => postgrestQueryBuilder<'a> = "from"
+@send external fromTable: (client, string) => postgrestQueryBuilder<'a> = "from"
 
 // OAuth sign in - moved after auth type definition
 
